@@ -53,7 +53,7 @@
     
     <section id="turntable" class="gb-turntable">
         <div class="gb-turntable-container">
-            <canvas class="gb-turntable-canvas" width="300" height="300px">抱歉！浏览器不支持。</canvas> 
+            <canvas class="gb-turntable-canvas" width="500" height="500px">抱歉！浏览器不支持。</canvas> 
         </div>
 
         <a class="gb-turntable-btn" href="javascript:;">抽奖</a>    
@@ -74,7 +74,7 @@ gbTurntable.init({
             callback && callback([num, chances]);   
     },
     gotBack: function(data) {
-        alert('恭喜抽中' + data);
+        alert('恭喜抽中' + data+ chances);
     }
 }); 
 </pre>
@@ -107,6 +107,7 @@ gbTurntable.init({
                 },
                 gotBack: function(data) {
                     alert('恭喜抽中' + data);
+                    console.log(chances);
                 }
             }); 
         }, false);

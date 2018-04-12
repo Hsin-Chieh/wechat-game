@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>WECHAT GAME 大轉盤</title>
+        <meta name="description" content="Taiki 官方企業抽獎">
+        <link rel="stylesheet" href="src/css/typo/typo.css">
+        <link rel="stylesheet" href="src/css/GB-canvas-turntable.css">
+        <link rel="stylesheet" href="src/css/GB-canvas-turntable.scss">
+        <script src="src/js/GB-canvas-turntable.js"></script>
+        <link rel="stylesheet" href="src/css/style.css">
+    </head>
+  <body ontouchstart>
+    
+	
+	
+
+	<div class="wrapper typo" id="wrapper">
+		<h1>淘寶搜Taiki</h1>
+    <section id="turntable" class="gb-turntable">
+        <div class="gb-turntable-container">
+            <canvas class="gb-turntable-canvas" width="500" height="500px">Error 瀏覽器不支援</canvas> 
+        </div>
+
+        <a class="gb-turntable-btn" href="javascript:;">抽奖</a>    
+    </section></div>
+    
+    
+    <div class="remain">
+            <div>剩餘次數: <p id="chance">
+                
+            </p></div>
+    </div>
+    
+   <div class="awardlist">
+       <ul class="main">
+           <li>一等獎:</li>
+           <li>二等獎:</li>
+           <li>三等獎:</li>
+           <li>四等獎:</li>
+           <li>五等獎:</li>
+       </ul>
+       
+   </div>
+   
+    <script>
+      //
+        var last_time = document.getElementById(chance);
+        last_time=3;
+        console.log(last_time);
+        //
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            gbTurntable.init({
+                id: 'turntable',
+                config: function(callback){
+                    // 获取奖品信息
+                    callback && callback(['1元红包','2元红包','3元红包','4元红包','5元红包','6元红包']);    
+                },
+                getPrize: function(callback) {
+                    // 中獎訊息
+                    var num = Math.random() * 6 >>> 0,   //奖品ID
+                        chances = num;  // 可抽奖次数
+                        callback && callback([num, chances]);  
+                        console.log(num);
+                        console.log( chances);
+                },
+                gotBack: function(data) {
+                    alert('恭喜抽中' + data);
+                    console.log('恭喜抽中' + data);
+                }
+            }); 
+        }, false);
+    </script> 
+    </body>
+</html>
